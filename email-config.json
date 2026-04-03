@@ -1,0 +1,55 @@
+# 邮件访问配置
+# 这是配置 Outlook/邮箱访问的配置文件
+
+# 邮箱类型选择:
+# - imap: 使用 IMAP 协议 (推荐，支持 QQ 邮箱/163 邮箱/企业邮箱等)
+# - outlook-api: 使用 Outlook REST API (需要 Azure 配置)
+# - manual: 手动粘贴 (无需配置)
+
+type: imap
+
+# IMAP 配置
+imap:
+  server: "outlook.office365.com"  # 或你的邮箱服务器
+  port: 993
+  security: "ssl"
+  
+  # 注意：Outlook 需要使用应用专用密码或 OAuth
+  # 对于个人邮箱，建议开启 IMAP 并使用应用密码
+  
+  # 邮箱地址
+  email: ""  # 填写你的邮箱地址
+  
+  # 密码/应用密码
+  password: ""  # 不要直接写在配置文件里，使用环境变量
+  
+# 读取规则
+read_rules:
+  # 只读取今天的邮件
+  date_filter: "today"
+  
+  # 只读取未读邮件
+  unread_only: false
+  
+  # 文件夹
+  folders: ["INBOX"]
+
+# 输出格式
+output:
+  # 总结格式
+  format: "structured"  # 可选: "structured", "list", "detailed"
+  
+  # 摘要包含的内容
+  include:
+    - subject
+    - sender
+    - date
+    - preview
+
+# 定时任务 (可选)
+schedule:
+  # 每小时检查一次
+  interval: "60m"
+  
+  # 或者每天早上 9 点
+  # cron: "0 9 * * *"

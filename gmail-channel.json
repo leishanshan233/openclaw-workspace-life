@@ -1,0 +1,11 @@
+{
+  "channelType": "gmail",
+  "channelName": "我的 Gmail",
+  "config": {
+    "clientId": "YOUR_CLIENT_ID",
+    "clientSecret": "YOUR_CLIENT_SECRET",
+    "refreshToken": "YOUR_REFRESH_TOKEN",
+    "email": "your.email@gmail.com"
+  },
+  "enabled": true
+}
